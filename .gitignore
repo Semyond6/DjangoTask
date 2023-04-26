@@ -232,3 +232,13 @@ db_django/performance_schema/users_144.sdi
 db_django/performance_schema/variables_by_thr_183.sdi
 db_django/performance_schema/variables_info_186.sdi
 db_django/sys/sys_config.ibd
+myweb/api/__pycache__/__init__.cpython-310.pyc
+myweb/api/__pycache__/forms.cpython-310.pyc
+myweb/api/__pycache__/get_all_smask.cpython-310.pyc
+myweb/api/__pycache__/mapping.cpython-310.pyc
+myweb/api/__pycache__/serial_n_mask.cpython-310.pyc
+myweb/api/__pycache__/urls.cpython-310.pyc
+myweb/api/__pycache__/validators.cpython-310.pyc
+myweb/api/__pycache__/views.cpython-310.pyc
+myweb/__pycache__/settings.cpython-310.pyc
+myweb/__pycache__/settings.cpython-310.pyc
