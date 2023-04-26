@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form action="equipment-type-create/" method="post">
+        {% csrf_token %}
+        <legend class="border-bottom mb-4">Добавление типа оборудования</legend>
+        {{ form_equipment_type_form|crispy }}
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Сохранить</button>
+        </div>
+    </form>
+    
+    <form action="equipment/" method="post">
+        {% csrf_token %}
+        <legend class="border-bottom mb-4">Добавление оборудования</legend>
+        {{ form_equipment_form|crispy }}
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Сохранить</button>
+        </div>
+    </form>
+
+    <form action="equipment/id" method="get">
+        {% csrf_token %}
+        <legend class="border-bottom mb-4">Поиск оборудования</legend>
+        {{ form_equipment_form_id|crispy }}
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Поиск</button>
+        </div>
+    </form>
+
+    <form action="equipment/id" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        {% csrf_token %}
+        <legend class="border-bottom mb-4">Обновление оборудования</legend>
+        {{ form_equipment_form_update|crispy }}
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Обновление</button>
+        </div>
+    </form>
+
+    <form action="equipment/id" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        {% csrf_token %}
+        <legend class="border-bottom mb-4">Удаление оборудования</legend>
+        {{ form_equipment_form_id|crispy }}
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Удалить</button>
+        </div>
+    </form>
+
+    <form action="equipment/all/" method="get">
+        {% csrf_token %}
+        <legend class="border-bottom mb-4">Список оборудования</legend>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Вывести список</button>
+        </div>
+    </form>
+
+    <form action="equipment-type/all/" method="get">
+        {% csrf_token %}
+        <legend class="border-bottom mb-4">Список типов оборудования</legend>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Вывести список</button>
+        </div>
+    </form>
+
+{% endblock content %}

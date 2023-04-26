@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    healthcheck:
+      test: "mysqladmin ping -u root -p$${MYSQL_ROOT_PASSWORD}"
+      interval: 2s
+      retries: 20
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: 'mysql'
+      MYSQL_USER: 'userdb'
+      MYSQL_PASSWORD: '1qazxcvb1QAZSE4'
+      MYSQL_ROOT_PASSWORD: '1qazxcvb1QAZSE4'
+    restart: always
+    volumes:
+      - ./db_django:/var/lib/mysql
+    networks:
+      - default
+  web:
+    build: .
+    links:
+      - "db"
+    command: python manage.py runserver 0.0.0.0:8000;
+            ./manage.py migrate
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      MYSQL_HOST: 'db'
+      MYSQL_DATABASE: 'mysql'
+      MYSQL_USER: 'userdb'
+      MYSQL_PASSWORD: '1qazxcvb1QAZSE4'
+    networks:
+      - default

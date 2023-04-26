@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<legend class="border-bottom mb-4">Список типов оборудования</legend>
+
+    {% if equipment_type %}
+    <ul>
+
+      {% for equipments in equipment_type %}
+      <li>
+        <a>id = {{ equipments.id }}</a> | equipment_type = {{equipments.type_name}} |
+        serial_number = {{ equipments.serial_number_mask }}
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no type equipments.</p>
+    {% endif %}
+
+    <nav> 
+        {% for p in page_obj.paginator.page_range %}
+            <a href="?page={{ p }}">{{ p }}</a>
+        {% endfor %}
+    </nav>
+{% endblock %}
