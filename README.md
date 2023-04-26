@@ -13,9 +13,11 @@
         "docker-compose exec web /usr/local/bin/python manage.py migrate"
 
 Для локального запуска программы в settings.py заменить HOST на:
+
     "DATABASES = {
     'default': {
         'HOST': 'localhost',
-    }
-}"
+         }
+    }"
+
 Иметь на машине mysql с портом: "3306"
